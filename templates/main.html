@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clustering Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f5f9; 
+            color: #333; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        h1 {
+            color: #0366d6; 
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff; 
+            border-radius: 8px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+
+        input[type="file"] {
+            margin-top: 8px;
+            padding: 8px;
+            box-sizing: border-box; 
+        }
+
+        input[type="number"] {
+            padding: 6px;
+            margin-right: 10px;
+            box-sizing: border-box; 
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #0366d6;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0366d6; 
+            color: #fff; 
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #edf5fc; 
+        }
+        .inline-container-top {
+            display: flex;
+            align-items: center; 
+        }
+
+        .inline-container-top label {
+            max-width: 140px;
+            margin-left: 8px;
+        }
+
+        .inline-container-top input {
+            display: inline-block;
+            max-width: 100px; 
+            margin-inline : 10px;
+        }
+        .inline-container label {
+            max-width: 140px; 
+        }
+        .inline-container input {
+            display: inline-block;
+            max-width: 100px; 
+            margin-inline : 10px; 
+        }
+        .inline-container button {
+            background-color: #0366d6; 
+            color: #fff; 
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .inline-container {
+            text-align: center; 
+        }
+        .container-head {
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; 
+            width: 100%;
+            text-align: center;
+            margin-inline: 20px;
+            margin-bottom: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        aside {
+            height: 100vh;
+            width: max-content;
+            background-color: #0366d6;
+            color: #ffffff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        aside h2 {
+            padding: 10px;
+        }
+
+        .container-aside {
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            width: 100%;
+            margin-bottom: 10px; 
+        }
+
+        a {
+            text-decoration: none;
+            color: #0366d6; 
+            border-radius: 5px;
+            display: block; 
+            transition: background-color 0.3s;
+            text-align: center;
+            padding-bottom: 15px;
+            padding-top: 15px;
+        }
+
+        a:hover {
+            background-color: #edf5fc; 
+        }
+
+    </style>
+</head>
+<body>
+    <aside>
+        <h2>Navigation</h2>
+        <div class="container-aside"><a href="/">Main</a></div>
+        <div class="container-aside"><a href="/eval">Evaluation</a></div>
+    </aside>
+    <main>
+        <div class="container-head">
+            <h1>PENERAPAN ALGORITMA K-MEANS UNTUK CLUSTERING DATA PENDUDUK MISKIN PER KABUPATEN/KOTA DI PULAU SUMATERA</h1>
+        </div>
+        
+        <form action="/cluster" method="post" enctype="multipart/form-data">
+            <div class="inline-container-top">
+                <label for="file">Browse File</label>
+                <input type="file" name="file" id="file" accept=".csv">
+            </div>
+            <div class="inline-container">
+                <label for="num_clusters" >Input Jumlah Cluster Yang Ingin Dibentuk : </label>
+                <input type="number" name="num_clusters" id="num_clusters" value="3" min="1">
+                <button type="submit">Start Clustering</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

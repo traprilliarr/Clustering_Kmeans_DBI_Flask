@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Clustering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f5f9; 
+            color: #333; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        h2 {
+            color: #0366d6; 
+        }
+        h1 {
+            color: #0366d6; 
+            text-align: center;
+            margin: 20px; 
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #0366d6;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0366d6; 
+            color: #fff; 
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #edf5fc; 
+        }
+
+        p {
+            margin-top: 5px;
+        }
+        .container-head {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; 
+            max-width: 100%;
+        }
+        aside {
+            width: max-content;
+            background-color: #0366d6;
+            color: #ffffff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        aside h2 {
+            padding: 10px;
+            color: #ffffff;
+        }
+
+        .container-aside {
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; 
+            width: 100%;
+            margin-bottom: 10px; 
+        }
+
+        a {
+            text-decoration: none;
+            color: #0366d6; 
+            border-radius: 5px;
+            display: block; 
+            transition: background-color 0.3s;
+            text-align: center;
+            padding-bottom: 15px;
+            padding-top: 15px;
+        }
+
+        a:hover {
+            background-color: #edf5fc; 
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <aside>
+        <h2>Navigation</h2>
+        <div class="container-aside"><a href="/">Main</a></div>
+        <div class="container-aside"><a href="/eval">Evaluation</a></div>
+    </aside>
+
+    <main>
+        <div class="container-head">
+            <h1>Hasil Clustering</h1>
+        </div>
+
+        <h2>Informasi Data Cluster</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cluster</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cluster, count in cluster_counts.items() %}
+                    <tr>
+                        <td>Cluster {{ cluster }}</td>
+                        <td>{{ count }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kabupaten/Kota</th>
+                    <th>JPM</th>
+                    <th>JP</th>
+                    <th>RRP</th>
+                    <th>RRLS</th>
+                    <th>Cluster</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for i, row in cluster_data.iterrows() %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ row['Kabupaten/Kota'] }}</td>
+                        <td>{{ row['JPM'] }}</td>
+                        <td>{{ row['JP'] }}</td>
+                        <td>{{ row['RRP'] }}</td>
+                        <td>{{ row['RRLS'] }}</td>
+                        <td>{{ row['Cluster'] }}</td> 
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        
+
+        <h2>Average Values for Each Cluster</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cluster</th>
+                    <th>JPM</th>
+                    <th>JP</th>
+                    <th>RRP</th>
+                    <th>RRLS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for average in averages %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ average[0] }}</td>
+                        <td>{{ average[1] }}</td>
+                        <td>{{ average[2] }}</td>
+                        <td>{{ average[3] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

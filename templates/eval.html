@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f5f9; 
+            color: #333; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        h2 {
+            color: #0366d6; 
+        }
+        h1 {
+            color: #0366d6; 
+            text-align: center; 
+            margin: 20px; 
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #0366d6;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0366d6; 
+            color: #fff; 
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #edf5fc; 
+        }
+
+        p {
+            margin-top: 5px;
+        }
+        .container-head {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; 
+            max-width: 100%;
+        }
+
+        .container-main {
+            padding-bottom: 50px;
+            padding-top: 25px;
+            max-width: 100%;
+            text-align: center;
+            
+        }
+        
+
+        aside {
+            height: 100vh;
+            width: max-content;
+            background-color: #0366d6;
+            color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        aside h2 {
+            padding: 10px;
+            color: #fff;
+        }
+
+        .container-aside {
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; 
+            width: 100%;
+            margin-bottom: 10px; 
+        }
+
+        a {
+            text-decoration: none;
+            color: #0366d6; 
+            border-radius: 5px;
+            display: block; 
+            transition: background-color 0.3s;
+            text-align: center;
+            padding-bottom: 15px;
+            padding-top: 15px;
+        }
+
+        a:hover {
+            background-color: #edf5fc; 
+        }
+    </style>
+</head>
+<body>
+    <aside>
+        <h2>Navigation</h2>
+        <div class="container-aside"><a href="/">Main</a></div>
+        <div class="container-aside"><a href="/eval">Evaluation</a></div>
+    </aside>
+    <main>
+        <div class="container-head">
+            <h1>Hasil Evaluasi</h1>
+        </div>
+        <div class="container-main">
+            <h3>DBI (Davies-Bouldin Index)</h3>
+            <p>DBI = {{ dbi }}</p>
+            <p>K = {{ k }}</p>
+        </div>
+        
+    </main>
+
+    
+</body>
+</html>
